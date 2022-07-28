@@ -4,10 +4,10 @@ Twitter API Keys
 
 for internal project use only
 
-Account: jan.pytela@gmail.com
+Account: *secret*
 
-apikey = 'bhcIoqFPwEhwGc08eHhJGWLCh'
-apikey_secret = 'gFo5qfMfV4NNOM7cubfZbSdj1DegldIKJUc1twNK6QGDytnjZx'
-bearertoken = 'AAAAAAAAAAAAAAAAAAAAAKDQQgEAAAAAb7NXicS8hQg5OEfU5IGVQMuAgD0%3DHy8dptvhgleuFMIcVa4EG0EK9m119XConWlLrBJoiXClUJYG4F'
-accestoken = '2512194951-5uj8hp8s6LRZIM/428GxFSIqxRouPDWt6vpJaR7x'
-accesstoken_secret = 'PBF9JsbDGEIwRaVUNg8bn7KpoXGkecaGlkjuEgntyDpon'
+apikey = *secret*
+apikey_secret = *secret*
+bearertoken = *secret*
+accestoken = *secret*
+accesstoken_secret = *secret*
