@@ -14,6 +14,8 @@ The architecture and the libraries used in the accessing, processing and analysi
 
 Thus, when looking at it from the “5 V’s” perspective, the Volume is clearly present, Variety is provided due to the nature of Tweets, which can be very diverse in contents. The same applies to the veracity criteria. Velocity is achieved using the Tweepy+Kafka combination, and the Value lies in the possible insight on human emotions, which is the research question of this project.
 
+![Architecture of the big data project](figs/arch.png)
+
 We access both the Twitter and the Weather data from APIs.
 
 For the Tweets part, a connection to the TwitterAPI is opened using Tweepy (tweepy.org, n.d.) and our credentials in the Twitter Producer Notebook. For the streaming data, Apache Kafka managed by Zookeeper is used. Upon the opened Tweets Stream, a Kafka Consumer notebook reads the Stream and loads the data into the SparkSession. The text of the Tweets is processed right away and the TextBlob library (“library for common natural language processing (NLP) is used to find the polarity and subjectivity of the tweet (TextBlob: Simplified Text Processing, n.d.). The DataFrames are then split based on specifically selected locations and the preprocessed data is saved to JSON files. Parameters in the JSON include time, text, location, subjectivity and polarity of the tweet. For the Weather part, the OpenWeatherMap API is used to download the data with pyspark and saved it locally in csv files. ( Weather API , n.d.)
