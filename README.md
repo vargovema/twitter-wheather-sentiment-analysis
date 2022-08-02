@@ -76,18 +76,22 @@ After training, our model was found to correctly classify approximately 30% of t
 
 ## Folder Structure
 
-/Twitter/twitterProducer.ipynb ---> Notebook with code for starting the stream.
-/Twitter/KafkaConsumerData_and_SentimentAnalysis.ipynb ---> Notebook with code for saving the data from stream and running the sentiment analysis. 
-/Twitter/results_tweets ---> Saved Tweets from the stream for each of 8 locations. (The outputs with tweets_city_1_location are the final ones, and the tweets_city_location are the testing ones whether the stream was running correctly)
--> Both twitterProducer and KafkaConsumerData_and_SentimentAnalysis need to run simultaneously.
+```
+|- tweets_with_weather                                  # Final merged dataset (Twitter data + Weather data) for each of 8 locations
+|- Twitter 
+|--- twitterProducer.ipynb                              # Notebook with code for starting the stream
+|--- KafkaConsumerData_and_SentimentAnalysis.ipynb      # Notebook with code for saving the data from stream and running the sentiment analysis
+|--- results_tweets                                     # Saved Tweets from the stream for each of 8 locations (tweets_city_1_location folders were used for the analysis, tweets_city_location were used for testing the stream)
+|- weather
+|--- weather_data                                       # Weather data for 01.07.2021 accessed from OpenWeather for each of 8 locations
+|--- weatherdata.ipynb                                  # Notebook with code for accessing of Weather data
+|- APIKeys.txt                                          # Twitter API keys
+|- data_processing_and_analysis.ipynb                   # Notebook with code for combining datasets, models
+```
 
-/weather/weather_data ---> Weather data for 01.07.2021 accessed from OpenWeather for each of 8 locations.
-/tweets_with_weather ---> Final merged dataset (Twitter data + Weather data) for each of 8 locations. 
-/weather/weatherdata.ipynb ---> Notebook with code for accessing of Weather data.
+## Requirements 
 
-/data_processing_and_analysis.ipynb ---> Notebook with code for combining datasets, models (Linear model, Logistic Regression, Naive Bayes) and Visualisations.
- 
-/APIKeys.txt ---> Twitter API keys
+Both twitterProducer and KafkaConsumerData_and_SentimentAnalysis need to run simultaneously.
 
-## Credits
+## Authors
 
