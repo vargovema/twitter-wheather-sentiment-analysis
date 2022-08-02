@@ -12,6 +12,8 @@ The question that we are focusing on with this project is the correlation that t
 
 The architecture and the libraries used in the accessing, processing and analysing of the data are 100% scalable. Most of all, by using the Twitter API the project would be able to access nearly unlimited amounts of data if a more powerful machine or more processing time was used for this project. To work with big data of this kind, the Spark MLlib analysis can be utilized to deliver better results.
 
+![Architecture of the big data project](figs/5V.png)
+
 Thus, when looking at it from the “5 V’s” perspective, the Volume is clearly present, Variety is provided due to the nature of Tweets, which can be very diverse in contents. The same applies to the veracity criteria. Velocity is achieved using the Tweepy+Kafka combination, and the Value lies in the possible insight on human emotions, which is the research question of this project.
 
 ![Architecture of the big data project](figs/arch.png)
@@ -37,7 +39,9 @@ As mentioned above, the datasets for the Tweets were quite large as there are ei
 
 In order to determine the nature and emotion of the Tweets we have gathered; we used a senti- ment analysis which would give us two scores: polarity and subjectivity. The polarity of the tweet is a value that lies between -1 and 1 and tells us the feeling a person expresses in the text, -1 if negative and if 1 positive. The other value is subjectivity which is from 0 to 1 and expresses whether the tweet is subjective, expressive of one’s opinions, or if it is objective and states facts. A subjective tweet would have a 1 score, while an objective one would have a 0 score.
 
-Figure 6 suggests that most of the tweets in our analysis tend to be neutral or slightly positive while the subjectivity of the tweets tends to be mostly neutral. For the purpose of our analysis, it would be ideal if these two independent variables followed normal distribution which we would definitely try to improve in the future by drawing more random observations from different days of the year.
+![Distributions of polarity and subjectivity scores](figs/dist.png)
+
+The figure above suggests that most of the tweets in our analysis tend to be neutral or slightly positive while the subjectivity of the tweets tends to be mostly neutral. For the purpose of our analysis, it would be ideal if these two independent variables followed normal distribution which we would definitely try to improve in the future by drawing more random observations from different days of the year.
 
 ### Linear Models
 
@@ -47,18 +51,25 @@ For this model, we had to firstly tweak our data frame, and turn it into an RDD 
 
 The coefficients of our model tell us what the estimated effect of our explanatory variables is on our response variables. For the polarity, there were only two variables that seemed to influence the response subjectivity value, and these were the subjective temperature as well as air pressure.
 
-As depicted in Figure 8, we observe a slightly negative relationship between subjective temperature and polarity, which we could already observe from the coefficients of linear regression. When it comes to the impact of air pressure, the visualisation and the coefficient also confirm that it has a slightly positive impact on the polarity score.
+![Impact of subjective temperature and air pressure on polarity scores](figs/subtempvssent.png)
+
+As depicted in the figure above, we observe a slightly negative relationship between subjective temperature and polarity, which we could already observe from the coefficients of linear regression. When it comes to the impact of air pressure, the visualisation and the coefficient also confirm that it has a slightly positive impact on the polarity score.
 
 However, as we can see in Figure 9, both coefficients were quite low with the one for subjective temperature is -0.0014 and the air pressure one is 0.0046. This means that an increase of 1 in subjective temperature leads to a decrease of -0.0014 in polarity score and an increase of 1 in air pressure leads to an increase of 0.0046 in polarity score (keep in mind that the variables are scaled). This, as well as the very low R squared value, which is a metric that tells us what proportion of the variation of the dependant variable is explained by the independent variable, of 0.00383 tells us that this model is not very good and does not show that weather has an impact on the polarity of the Tweets.
 
-In the linear model for subjectivity, subjective temperature, pressure and temperature seem to have an impact on the subjectivity score. Moreover, Figure 10 suggests that subjective temperature and actual temperature have a slightly negative impact on subjectivity score while air pressure has a slightly positive impact on the score.
+In the linear model for subjectivity, subjective temperature, pressure and temperature seem to have an impact on the subjectivity score. Moreover, the figure below suggests that subjective temperature and actual temperature have a slightly negative impact on subjectivity score while air pressure has a slightly positive impact on the score.
+
+![Impact of subjective temperature, air pressure and temperature on subjectivity scores](figs/subvssubtempaptemp.png)
 
 As depicted in Figure 11, subjective temperature and pressure have coefficients of -0.0006 and 0.0018 respectively, and additionally, in this model, the variable temperature had a coefficient of -0.0025. The other explanatory variables have coefficients of 0 meaning that they do not have an impact on the subjectivity score. As with the previous model, the R squared value is very low, being only 0.003367, which again leads us to conclude that this model does not show that the weather has an impact on the polarity in Tweets.
 
 One possible issue in this could be that subjectivity and polarity are not in linear relation to the weather. One possible issue with these linear models could be that subjectivity and polarity are not in linear relation to the weather. Furthermore, the data visualisations do not suggest any other particular pattern, rather we see that some clusters could be present. Hence, we can con- clude that weather does not affect subjectivity and polarity linearly and we will move on to other models to investigate the relationship further.
 
 ### Logistic regression
+
 The logistic regression is a model that is used to run an analysis between a binary dependant variable and multiple independent variables in different forms. In our case, the dependant variable was not in binary form, however, we converted the response variables polarity and subjectivity into binary by creating a cut-off point. After implementing trial and error to determine the optimal cut off point, we decided to go with 0.6 for subjectivity and 0.2 for polarity. So, if the subjectivity value would be greater or equal to 0.6, the value would be converted to a 1, and otherwise to 0, and the same for polarity. In the case of polarity, 1 means that a tweet is positive and 0 covers neutral and negative connotations. For subjectivity, 1 represents that a tweet is subjective and 0 means that it is objective. As we can see in Figure 12, the majority of tweets are not positive nor subjective where approximately 25 percent of tweets are subjective and around 30 percent are positive.
+
+![Distribution of subjectivity and polarity scores on a binary scale](figs/distbin.png)
 
 Regarding the actual model fit, we ran the analysis twice, firstly for a dataset including polarity, and secondly for subjectivity. The datasets also had to be adjusted, so that the values would be indexed based on the number of occurrences of the features in the dataset. After running the data through the pipeline, we created another column based on the features that would be explored in our model. The features that we decided to investigate were the cloud coverage, the subjective temperature, the humidity, the air pressure, the temperature, the visibility, and the wind speed.
 
@@ -96,4 +107,6 @@ After training, our model was found to correctly classify approximately 30% of t
 Both twitterProducer and KafkaConsumerData_and_SentimentAnalysis need to run simultaneously.
 
 ## Authors
+
+Ema Vargova, Luka Corsovic, Jan Pytela, Beata Stingelova
 
