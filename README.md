@@ -1,5 +1,18 @@
 # Analysis of Emotions expressed in Tweets based on the weather conditions (using Apache Spark and Kafka)
 
+- [Project Overview](#project-overview)
+- [Research Question](#research-question)
+- [The Data](#the-data)
+- [Data Processing](#data-processing)
+- [Data Analytics](#data-analytics)
+  - [Sentiment analysis](#sentiment-analysis)
+  - [Linear Models](#linear-models)
+  - [Logistic regression](#logistic-regression)
+  - [Naïve Bayes model](#naïve-bayes-model)
+- [Folder Structure](#folder-structure)
+- [Requirements](#requirements)
+- [Authors](#authors)
+
 ## Project Overview
 
 As extreme weather conditions and fluctuations become more frequent, it is necessary to understand how this influences people on a psychological level. With global warming causing the weather to fluctuate more than ever before, we aim to research how different weather conditions affect people’s thoughts and moods. It is inevitable to understand how weather changes affect us, and perhaps the fight against climate change would become more effective if people were able to internalize it, due to climate change affecting their psychological wellbeing negatively.
@@ -94,8 +107,7 @@ After training, our model was found to correctly classify approximately 30% of t
 |- Twitter 
 |--- twitterProducer.ipynb                              # Notebook with code for starting the stream
 |--- KafkaConsumerData_and_SentimentAnalysis.ipynb      # Notebook with code for saving the data from stream and running the sentiment analysis
-|--- results_tweets                                     # Saved Tweets from the stream for each of 8 locations (tweets_city_1_location folders were used for the analysis, tweets_city_location were used for testing the stream)
-|- weather
+|--- results_tweets                                     # Saved Tweets from the stream for each of 8 locations 
 |--- weather_data                                       # Weather data for 01.07.2021 accessed from OpenWeather for each of 8 locations
 |--- weatherdata.ipynb                                  # Notebook with code for accessing of Weather data
 |- APIKeys.txt                                          # Twitter API keys
@@ -104,7 +116,7 @@ After training, our model was found to correctly classify approximately 30% of t
 
 ## Requirements 
 
-Both twitterProducer and KafkaConsumerData_and_SentimentAnalysis need to run simultaneously.
+Both twitterProducer and KafkaConsumerData_and_SentimentAnalysis need to run simultaneously. To access the Twitter data, a developer account is needed
 
 ## Authors
 
