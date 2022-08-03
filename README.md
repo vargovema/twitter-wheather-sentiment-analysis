@@ -116,7 +116,7 @@ After training, our model was found to correctly classify approximately 30% of t
 
 ## Requirements 
 
-Both twitterProducer and KafkaConsumerData_and_SentimentAnalysis need to run simultaneously. To access the Twitter data, a developer account is needed
+Both twitterProducer and KafkaConsumerData_and_SentimentAnalysis need to run simultaneously. To access the Twitter data, a developer account from Twitter is needed to get the API keys. Due to the licencing of such account, the tweets are not provided in this repository. Only the processed data is provided in order to stay GDPR compliant.
 
 ## Authors
 
