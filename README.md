@@ -11,6 +11,7 @@
   - [Naïve Bayes model](#naïve-bayes-model)
 - [Folder Structure](#folder-structure)
 - [Requirements](#requirements)
+- [Notes](#notes)
 - [Authors](#authors)
 
 ## Project Overview
