@@ -18,7 +18,7 @@
 
 As extreme weather conditions and fluctuations become more frequent, it is necessary to understand how this influences people on a psychological level. With global warming causing the weather to fluctuate more than ever before, we aim to research how different weather conditions affect people’s thoughts and moods. It is inevitable to understand how weather changes affect us, and perhaps the fight against climate change would become more effective if people were able to internalize it, due to climate change affecting their psychological wellbeing negatively.
 
-This project aims to explore data streaming using Apache Kafka for sentiment analysis. Since the main focus was to explore building NLP pipeline for classification using Apache Spark, there might be some strong assumptions concerning the data.
+This project aims to explore data streaming using Apache Kafka for sentiment analysis. Since the main focus was to explore building a NLP pipeline for classification using Apache Spark, there might be some strong assumptions concerning the data.
 
 ## Research Question
 
